@@ -13,7 +13,6 @@ public class PrimerEjercicio {
     public static void main(String[] args) throws IOException {
         List<String> lineas= Files.readAllLines(Paths.get("idiomas.txt"));
 
-
         Map<String,Set<String>> idiomas=new TreeMap<>();
 
         Iterator<String> iterador=lineas.iterator();
@@ -21,7 +20,7 @@ public class PrimerEjercicio {
             String pais=iterador.next();
             String idiomasLinea=iterador.next();
             String[] idiomasSeparados=idiomasLinea.split(",");
-            //List<String> listaIdiomas=idiomasSeparados.asList();
+//            List<String> listaIdiomas=Arrays.asList().asList();
             Set<String> listaIdiomas=new TreeSet<>();
             for (String s :
                     idiomasSeparados) {
@@ -29,7 +28,6 @@ public class PrimerEjercicio {
             }
             idiomas.put(pais,listaIdiomas);
         }
-
 
         try(ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("pepe.obj"))){
             oos.writeObject(idiomas);
