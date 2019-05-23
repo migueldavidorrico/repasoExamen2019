@@ -42,25 +42,21 @@ public class FindAndReplace {
         if(!primero.exists()){
             throw new IllegalArgumentException("El primer fichero no existe");
         }
-
-        try(BufferedReader br=new BufferedReader(new FileReader(primerFichero));
-            PrintWriter pw=new PrintWriter(segundoFichero);
-                ){
-            String lineaActual=br.readLine();
-            while(lineaActual!=null){
-                String nuevaLinea=lineaActual.replace(palabraOriginal,palabraASustituir);
-                pw.println(nuevaLinea);
-                lineaActual=br.readLine();
-            }
-        }
-//        List<String> lineas= Files.readAllLines(Paths.get(primerFichero));
 //
-//        List<String> nuevas=new ArrayList<>();
-//        for (String s :
-//                lineas) {
-//            nuevas.add(s.replace(palabraOriginal, palabraASustituir));
+//        try(BufferedReader br=new BufferedReader(new FileReader(primerFichero));
+//            PrintWriter pw=new PrintWriter(segundoFichero);
+//                ){
+//            String lineaActual=br.readLine();
+//            while(lineaActual!=null){
+//                String nuevaLinea=lineaActual.replace(palabraOriginal,palabraASustituir);
+//                pw.println(nuevaLinea);
+//                lineaActual=br.readLine();
+//            }
 //        }
-//
-//        Files.write(Paths.get(segundoFichero),nuevas);
+        List<String> lineas= Files.readAllLines(Paths.get(primerFichero));
+
+        lineas.stream().forEach(s->s.replace(palabraOriginal,palabraASustituir));
+
+      //  Files.write(Paths.get(segundoFichero),nuevas);
     }
 }
