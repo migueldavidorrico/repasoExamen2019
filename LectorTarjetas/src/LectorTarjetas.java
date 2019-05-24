@@ -6,7 +6,8 @@ import java.awt.event.KeyEvent;
 public class LectorTarjetas extends JDialog {
     String leido=null;
 
-    public LectorTarjetas() {
+    public LectorTarjetas(JFrame miVentana) {
+        super(miVentana);
         this.leido = "";
         setModal(true);
         setBounds(0,0,800,800);
@@ -30,7 +31,7 @@ public class LectorTarjetas extends JDialog {
     private void pulsacion(KeyEvent e) {
         this.leido+=e.getKeyChar();
         if(this.leido.length()==10){
-            this.dispose();
+            this.setVisible(false);
         }
     }
 
@@ -39,6 +40,8 @@ public class LectorTarjetas extends JDialog {
     }
 
     public String getLectura() {
-        return leido;
+        String salida=leido;
+        leido="";
+        return salida;
     }
 }
