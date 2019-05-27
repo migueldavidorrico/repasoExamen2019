@@ -52,12 +52,15 @@ public class PruebaLector {
 
 
                 //Hace falta un fichero de alarma.mp3
+
                 AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("alarma.wav" +
                         ""));
                 Clip clip = AudioSystem.getClip();
                 clip.open(audioInputStream);
                 clip.start();
                 dialogoERROR.setVisible(true);
+
+
 
 
 

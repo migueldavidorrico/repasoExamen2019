@@ -21,7 +21,7 @@ public class ListaVentanas {
 
 
         dialogos.add(new JDialog());
-        dialogos.get(1).getContentPane().setLayout(new GridLayout(0,2));
+        dialogos.get(1).getContentPane().setLayout(new GridLayout(0,2,60,60));
         dialogos.add(new JDialog());
         dialogos.get(2).getContentPane().setLayout(new GridBagLayout());
         dialogos.add(new JDialog());
@@ -41,6 +41,20 @@ public class ListaVentanas {
     }
 
     public static void main(String[] args) {
+
+        try{
+
+            JFrame.setDefaultLookAndFeelDecorated(true);
+            JDialog.setDefaultLookAndFeelDecorated(true);
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+            //UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
         JFrame cerrar=new JFrame("CERRAR");
         cerrar.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         cerrar.setBounds(BORDER, BORDER,ANCHO-BORDER*2,ALTO-BORDER*2);
